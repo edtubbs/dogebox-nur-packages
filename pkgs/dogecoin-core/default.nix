@@ -4,7 +4,7 @@ stdenv.mkDerivation {
   pname = "dogecoin-core";
   version = "1.14.7";
   src = fetchurl {
-    url = "https://github.com/dogecoin/dogecoin/archive/refs/tags/v1.14.7.tar.gz";
+    url = "https://github.com/dogecoin/dogecoin/archive/refs/tags/v${version}.tar.gz";
     hash = "sha256-x0fCXGTb8pMa5vGKKkLlKXrTvj8qFX9X6KbiaHpnmF0=";
   };
   configureFlags = [

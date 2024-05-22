@@ -1,0 +1,23 @@
+diff -ruN nrpe-nrpe-4.1.0.orig/configure nrpe-nrpe-4.1.0/configure
+--- nrpe-nrpe-4.1.0.orig/configure      2022-07-19 05:27:53.000000000 +1000
++++ nrpe-nrpe-4.1.0/configure   2024-05-01 14:43:32.723070010 +1000
+@@ -7817,7 +7817,8 @@
+   nrpe_port=5666
+ fi
+
+-NRPE_INSTALL_OPTS="-o $nrpe_user -g $nrpe_group"
++#NRPE_INSTALL_OPTS="-o $nrpe_user -g $nrpe_group"
++NRPE_INSTALL_OPTS=""
+
+ cat >>confdefs.h <<_ACEOF
+ #define DEFAULT_SERVER_PORT $nrpe_port
+@@ -7840,7 +7841,8 @@
+   nagios_group=nagios
+ fi
+
+-NAGIOS_INSTALL_OPTS="-o $nagios_user -g $nagios_group"
++#NAGIOS_INSTALL_OPTS="-o $nagios_user -g $nagios_group"
++NAGIOS_INSTALL_OPTS=""
+
+                                if test "`uname -s`" = "HP-UX" ; then
+                LDFLAGS="$LDFLAGS -Wl,+allowdups";
