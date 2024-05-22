@@ -1,6 +1,6 @@
 { lib, pkgs, stdenv, fetchurl, ... }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   pname = "libdogecoin";
   version = "0.1.3";
 
