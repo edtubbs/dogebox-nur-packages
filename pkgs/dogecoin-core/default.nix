@@ -6,7 +6,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/dogecoin/dogecoin/archive/refs/tags/v${version}.tar.gz";
-    hash = "sha256-x0fCXGTb8pMa5vGKKkLlKXrTvj8qFX9X6KbiaHpnmF0=";
+    hash = "sha256-GGoH41YdPapASIffYlBoQhJoh7cua0pGqcpG9Qb9EiM=";
   };
 
   configureFlags = [
