@@ -21,4 +21,5 @@
   jampuppy      = pkgs.callPackage ./pkgs/jampuppy {};
   libdogecoin   = pkgs.callPackage ./pkgs/libdogecoin {};
   nrpe          = pkgs.callPackage ./pkgs/nrpe {};
+  radicle       = pkgs.callPackage ./pkgs/radicle {};
 }
