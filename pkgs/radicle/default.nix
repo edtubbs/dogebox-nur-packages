@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   version = "1.0.0-rc.13";
 
   src = fetchurl {
-    url = "https://files.radicle.xyz/releases/latest/radicle-1.0.0-rc.13-x86_64-unknown-linux-musl.tar.xz";
+    url = "https://files.radicle.xyz/releases/latest/${pname}-${version}-x86_64-unknown-linux-musl.tar.xz";
     hash = "sha256-8l2O2DSLrdIGe3isQoS1MiJPT2MsBUIwiastFgHScIE=";
   };
 
