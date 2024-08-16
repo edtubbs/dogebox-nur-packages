@@ -8,7 +8,7 @@ buildGoModule {
     url = "https://github.com/dogeorg/dogeboxd.git";
   };
 
-  vendorHash = "sha256-1Of6rqxAYstMGJur/H5V/K+mICtCblp6bXkMZq9r2B0=";
+  vendorHash = "sha256-Nmw495UjpwrNDkJGXSQcf29O6HLelDlK4fNG8vgkKok=";
 
   buildPhase = ''
     make
@@ -21,6 +21,10 @@ buildGoModule {
 
   nativeBuildInputs = [
     pkgs.go
+  ];
+
+  buildInputs = [
+    pkgs.systemd.dev
   ];
 
   meta = with lib; {
