@@ -6,9 +6,10 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/dogeboxd.git";
+    rev = "674dc27aef30cbef33fa2934bf5faaf44a99bc2b";
   };
 
-  vendorHash = "sha256-Nmw495UjpwrNDkJGXSQcf29O6HLelDlK4fNG8vgkKok=";
+  vendorHash = "sha256-Py1kZ7gLg0naQ7UIpmS7WNVV2S/rz8aYBYmGeisSh8g=";
 
   buildPhase = ''
     make
