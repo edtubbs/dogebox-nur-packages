@@ -14,6 +14,7 @@
   modules = import ./modules; # NixOS modules
   overlays = import ./overlays; # nixpkgs overlays
 
+  dkm           = pkgs.callPackage ./pkgs/dkm {};
   dogeboxd      = pkgs.callPackage ./pkgs/dogeboxd {};
   dogecoin-core = pkgs.callPackage ./pkgs/dogecoin-core {};
   dogemap       = pkgs.callPackage ./pkgs/dogemap {};
