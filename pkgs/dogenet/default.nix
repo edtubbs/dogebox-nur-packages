@@ -8,7 +8,7 @@ buildGoModule {
     url = "https://github.com/dogeorg/dogenet.git";
   };
 
-  vendorHash = null;
+  vendorHash = "sha256-5R+5XQZG6Qjk5m2/Oxq4c4qKbxDcnYz57jdNr8ImcqI=";
 
   nativeBuildInputs = [
     pkgs.go

@@ -6,6 +6,7 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/dogemap.git";
+    rev = "24f207c15ac655387c3040c791b559843b3b6814";
   };
 
   vendorHash = "sha256-7hRezOBcjB2wsx/SwV519wg3Azh+0kHMcAoc9aYPM3A=";

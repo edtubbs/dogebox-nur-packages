@@ -6,6 +6,7 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/jampuppy.git";
+    rev = "a9a2160fbcd80a17f722fabf17a67b77b8f2c00b";
   };
 
   vendorHash = "sha256-3PnXB8AfZtgmYEPJuh0fwvG38dtngoS/lxyx3H+rvFs=";
