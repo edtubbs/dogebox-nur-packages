@@ -6,7 +6,7 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/dogeboxd.git";
-    rev = "674dc27aef30cbef33fa2934bf5faaf44a99bc2b";
+    rev = "3c8c3eb426db7481e1965ed73c98b50840356689";
   };
 
   vendorHash = "sha256-Py1kZ7gLg0naQ7UIpmS7WNVV2S/rz8aYBYmGeisSh8g=";
@@ -21,7 +21,7 @@ buildGoModule {
   '';
 
   nativeBuildInputs = [
-    pkgs.go
+    pkgs.go_1_22
   ];
 
   buildInputs = [
