@@ -6,10 +6,10 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/dkm.git";
-    rev = "ddbb3eb4022e90384306a5264bb88e4709dc69e7";
+    rev = "e9d027abedf874353cbc9b1404b07961bee77792";
   };
 
-  vendorHash = "sha256-bJeDnkn3sGWE9qbrqZfFj7WPjZ3c3WX0I0dBL4O5wKQ=";
+  vendorHash = "sha256-IxjlMOYvEW3hRyvwlqyWBs2KjjXQE/IYpX+LF3DsWEM=";
 
   nativeBuildInputs = [
     pkgs.go
