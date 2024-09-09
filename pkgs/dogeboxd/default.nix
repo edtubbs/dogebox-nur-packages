@@ -13,7 +13,7 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/dogeboxd.git";
-    rev = "c340dd301c647ac7d41d4d3cadc87ea6bbbcf1f6";
+    rev = "e51657e02176a60a79081027c89f841bd6a6cf02";
   };
 
   vendorHash = "sha256-Py1kZ7gLg0naQ7UIpmS7WNVV2S/rz8aYBYmGeisSh8g";
