@@ -24,4 +24,5 @@
   nrpe          = pkgs.callPackage ./pkgs/nrpe {};
   radicle       = pkgs.callPackage ./pkgs/radicle {};
   radicle-httpd = pkgs.callPackage ./pkgs/radicle-httpd {};
+  gigawallet    = pkgs.callPackage ./pkgs/gigawallet {};
 }
