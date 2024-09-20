@@ -1,4 +1,13 @@
-{ pkgs, stdenv, fetchurl, lib, ... }:
+{
+  pkgs ? import <nixpkgs> {},
+  stdenv ? pkgs.stdenv,
+  fetchurl ? pkgs.fetchurl,
+  lib ? pkgs.lib,
+  disableWallet ? false,
+  disableGUI ? false,
+  disableTests ? false,
+  ...
+}:
 
 stdenv.mkDerivation rec {
   pname = "dogecoin-core";
@@ -12,7 +21,10 @@ stdenv.mkDerivation rec {
   configureFlags = [
     "--with-incompatible-bdb"
     "--with-boost-libdir=${pkgs.boost}/lib"
-  ];
+  ]
+  ++ lib.optional disableWallet "--disable-wallet"
+  ++ lib.optional disableGUI "--with-gui=no"
+  ++ lib.optional disableTests "--disable-tests";
 
   nativeBuildInputs = [
     pkgs.pkg-config
