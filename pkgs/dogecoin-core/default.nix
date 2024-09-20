@@ -38,7 +38,6 @@ stdenv.mkDerivation rec {
     pkgs.boost
     pkgs.zlib
     pkgs.libevent
-    pkgs.miniupnpc
     pkgs.protobuf
     pkgs.qrencode
   ];
