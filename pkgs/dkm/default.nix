@@ -1,4 +1,11 @@
-{ lib, pkgs, stdenv, fetchurl, buildGoModule, ... }:
+{
+  pkgs ? import <nixpkgs> {},
+  lib ? pkgs.lib,
+  stdenv ? pkgs.stdenv,
+  fetchurl ? pkgs.fetchurl,
+  buildGoModule ? pkgs.buildGoModule,
+  ...
+}:
 
 buildGoModule {
   pname = "dkm";

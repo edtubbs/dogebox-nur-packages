@@ -1,9 +1,16 @@
-{ lib, pkgs, stdenv, fetchurl, buildGoModule, ... }:
+{
+  pkgs ? import <nixpkgs> {},
+  lib ? pkgs.lib,
+  stdenv ? pkgs.stdenv,
+  fetchurl ? pkgs.fetchurl,
+  buildGoModule ? pkgs.buildGoModule,
+  ...
+}:
 
 let
   dpanel = fetchGit {
     url = "https://github.com/dogeorg/dpanel.git";
-    rev = "6447d317e665a6bb33950dd43c7db98e548f6508";
+    rev = "f2e2189670c0c39ae5139305c475621c50d93625";
   };
 in
 
@@ -13,10 +20,10 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/dogeboxd.git";
-    rev = "4f10b2bb50bad9e4632dab494702c4fd0e201415";
+    rev = "6dd0a1745ced496e5172753431313e4134d776f6";
   };
 
-  vendorHash = "sha256-Py1kZ7gLg0naQ7UIpmS7WNVV2S/rz8aYBYmGeisSh8g";
+  vendorHash = "sha256-Z0maOpolSBoYYN/oomPHNZurMNjyMhS0QUMg3MgmvcU=";
 
   buildPhase = ''
     make
