@@ -6,7 +6,7 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/dkm.git";
-    rev = "e9d027abedf874353cbc9b1404b07961bee77792";
+    rev = "36ebae9741cb1b7fd5d27e1ab03062cda2822fe3";
   };
 
   vendorHash = "sha256-IxjlMOYvEW3hRyvwlqyWBs2KjjXQE/IYpX+LF3DsWEM=";
