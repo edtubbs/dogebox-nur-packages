@@ -1,4 +1,9 @@
-{ lib, pkgs, stdenv, fetchurl, buildGoModule, ... }:
+{
+  pkgs ? import <nixpkgs> {},
+  lib ? pkgs.lib,
+  buildGoModule ? pkgs.buildGoModule,
+  ...
+}:
 
 buildGoModule {
   pname = "dogemap";

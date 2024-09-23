@@ -1,4 +1,9 @@
-{ pkgs, stdenv, fetchurl, ... }:
+{
+  pkgs ? import <nixpkgs> {},
+  stdenv ? pkgs.stdenv,
+  fetchurl ? pkgs.fetchurl,
+  ...
+}:
 
 stdenv.mkDerivation rec {
   pname = "nrpe";

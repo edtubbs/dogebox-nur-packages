@@ -1,4 +1,9 @@
-{ lib, pkgs, stdenv, fetchurl, buildGoModule, ... }:
+{
+  pkgs ? import <nixpkgs> {},
+  lib ? pkgs.lib,
+  buildGoModule ? pkgs.buildGoModule,
+  ...
+}:
 
 buildGoModule {
   pname = "dogenet";
@@ -6,6 +11,7 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/dogenet.git";
+    rev = "610b952f7389b80b894d00f5290c5e0861c429c4";
   };
 
   vendorHash = "sha256-5R+5XQZG6Qjk5m2/Oxq4c4qKbxDcnYz57jdNr8ImcqI=";

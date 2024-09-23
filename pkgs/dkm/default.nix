@@ -1,8 +1,6 @@
 {
   pkgs ? import <nixpkgs> {},
   lib ? pkgs.lib,
-  stdenv ? pkgs.stdenv,
-  fetchurl ? pkgs.fetchurl,
   buildGoModule ? pkgs.buildGoModule,
   ...
 }:
