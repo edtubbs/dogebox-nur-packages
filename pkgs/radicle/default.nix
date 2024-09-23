@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   pname = "radicle";
-  version = "1.0.0-rc.13";
+  version = "1.0.0";
 
   src = fetchurl {
     url = "https://files.radicle.xyz/releases/latest/${pname}-${version}-x86_64-unknown-linux-musl.tar.xz";
-    hash = "sha256-8l2O2DSLrdIGe3isQoS1MiJPT2MsBUIwiastFgHScIE=";
+    hash = "sha256-btJnbw7/xyBrAe3imfhXrEfOx8HJvEQpuCb8ajWLTig=";
   };
 
   installPhase = ''

@@ -1,12 +1,18 @@
-{ pkgs, stdenv, fetchurl, ... }:
+{
+  pkgs ? import <nixpkgs> {},
+  lib ? pkgs.lib,
+  stdenv ? pkgs.stdenv,
+  fetchurl ? pkgs.fetchurl,
+  ...
+}:
 
 stdenv.mkDerivation rec {
   pname = "radicle-httpd";
-  version = "0.15.0";
+  version = "0.17.0";
 
   src = fetchurl {
     url = "https://files.radicle.xyz/releases/${pname}/latest/${pname}-${version}-x86_64-unknown-linux-musl.tar.xz";
-    hash = "sha256-UOtq1QMnwu4r/rTR3LVOuikHgNgY+0/Zj+254a+rO7A=";
+    hash = "sha256-SW/hgHGzA6FLmZHNzkIoome2cMaZcpQGTHyEc33cCuY=";
   };
 
   installPhase = ''

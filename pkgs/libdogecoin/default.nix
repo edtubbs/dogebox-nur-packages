@@ -1,4 +1,10 @@
-{ lib, pkgs, stdenv, fetchurl, ... }:
+{
+  pkgs ? import <nixpkgs> {},
+  lib ? pkgs.lib,
+  stdenv ? pkgs.stdenv,
+  fetchurl ? pkgs.fetchurl,
+  ...
+}:
 
 stdenv.mkDerivation rec {
   pname = "libdogecoin";
