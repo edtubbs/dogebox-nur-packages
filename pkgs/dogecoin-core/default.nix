@@ -11,11 +11,11 @@
 
 stdenv.mkDerivation rec {
   pname = "dogecoin-core";
-  version = "1.14.7";
+  version = "1.14.8";
 
   src = fetchurl {
     url = "https://github.com/dogecoin/dogecoin/archive/refs/tags/v${version}.tar.gz";
-    hash = "sha256-GGoH41YdPapASIffYlBoQhJoh7cua0pGqcpG9Qb9EiM=";
+    hash = "sha256-+I3EiFNfArmAEsg6gkAC0Ief0nlkQ8Yhjf1keq7Hz2E=";
   };
 
   configureFlags = [
