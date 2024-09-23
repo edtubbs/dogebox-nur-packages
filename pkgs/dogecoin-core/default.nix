@@ -6,15 +6,19 @@
   disableWallet ? false,
   disableGUI ? false,
   disableTests ? false,
+  enableZMQ ? false,
   ...
 }:
 
 stdenv.mkDerivation rec {
   pname = "dogecoin-core";
-  version = "1.14.8";
+  upstreamVersion = "1.14.8";
+  derivationVersion = "v1";
+
+  version = "${upstreamVersion}-${derivationVersion}";
 
   src = fetchurl {
-    url = "https://github.com/dogecoin/dogecoin/archive/refs/tags/v${version}.tar.gz";
+    url = "https://github.com/dogecoin/dogecoin/archive/refs/tags/v${upstreamVersion}.tar.gz";
     hash = "sha256-+I3EiFNfArmAEsg6gkAC0Ief0nlkQ8Yhjf1keq7Hz2E=";
   };
 
@@ -40,6 +44,9 @@ stdenv.mkDerivation rec {
     pkgs.libevent
     pkgs.protobuf
     pkgs.qrencode
+  ]
+  ++ lib.optional enableZMQ [
+    pkgs.zeromq
   ];
 
   meta = with lib; {
