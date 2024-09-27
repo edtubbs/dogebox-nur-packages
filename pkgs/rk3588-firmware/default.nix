@@ -1,4 +1,8 @@
-{ pkgs, stdenv, ... }:
+{ 
+  pkgs ? import <nixpkgs> {},
+  stdenv ? pkgs.stdenv,
+  ...
+}:
 
 stdenv.mkDerivation rec {
   pname = "rk3588-firmware";
