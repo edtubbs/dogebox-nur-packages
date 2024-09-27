@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
   configurePhase = ''
     export HOME=$(pwd)
     ./autogen.sh
-    ./configure
+    LIBS="-levent_core" ./configure
   '';
 
   installPhase = ''
