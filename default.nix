@@ -26,4 +26,5 @@
   radicle-httpd   = pkgs.callPackage ./pkgs/radicle-httpd {};
   rk3588-firmware = pkgs.callPackage ./pkgs/rk3588-firmware {};
   gigawallet      = pkgs.callPackage ./pkgs/gigawallet {};
+  identity        = pkgs.callPackage ./pkgs/identity {};
 }
