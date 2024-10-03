@@ -27,4 +27,5 @@
   rk3588-firmware = pkgs.callPackage ./pkgs/rk3588-firmware {};
   gigawallet      = pkgs.callPackage ./pkgs/gigawallet {};
   identity        = pkgs.callPackage ./pkgs/identity {};
+  reflector       = pkgs.callPackage ./pkgs/reflector {};
 }
