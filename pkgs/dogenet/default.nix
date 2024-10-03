@@ -7,7 +7,7 @@
 
 let
   geodb = pkgs.fetchurl {
-    url = "https://github.com/sapics/ip-location-db/raw/main/dbip-city/dbip-city-ipv4-num.csv.gz";
+    url = "https://github.com/sapics/ip-location-db/raw/0359bf3c26c75cd38da56aa28f28895098f01dbb/dbip-city/dbip-city-ipv4-num.csv.gz";
     sha256 = "sha256-Co5NJ1+puxFAubWf289JLolcWxYYkAAb54evAo1mJxs=";
   };
 in
