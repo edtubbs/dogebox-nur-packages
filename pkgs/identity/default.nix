@@ -11,7 +11,7 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/identity.git";
-    rev = "6305bca3fd4b2c150c4795cafc7bd9ced8812d1d";
+    rev = "f8cb1c74a495ae4a96c844e30a1c8fa46ee53e4c";
   };
 
   vendorHash = "sha256-NnxDs9ZcvFCqpW+XCLMQZg22PIod7MS2hpVpmzNKsrE=";
