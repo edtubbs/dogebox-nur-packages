@@ -9,9 +9,10 @@ buildGoModule {
   pname = "identity";
   version = "0.1";
 
-  src = fetchGit {
+  src = pkgs.fetchgit {
     url = "https://github.com/dogeorg/identity.git";
-    rev = "f8cb1c74a495ae4a96c844e30a1c8fa46ee53e4c";
+    rev = "v0.1.2";
+    hash = "sha256-ygEEsGwQfCH3vBUPXJLRr8nGscTw4Dgi1ttzmtmb1B4=";
   };
 
   vendorHash = "sha256-NnxDs9ZcvFCqpW+XCLMQZg22PIod7MS2hpVpmzNKsrE=";
