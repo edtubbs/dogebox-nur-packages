@@ -11,13 +11,13 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/reflector.git";
-    rev = "d157aec662749c80e83ae2d240cf8c3b376cdc7f";
+    rev = "bbb24e1b4bdc68a0cbc955ea028c73daebfe9e1f";
   };
 
   vendorHash = "sha256-Dfdzc2wZWis2/Lla6VLYkSUNKw4dTw8kEGCGdDN0org=";
 
   nativeBuildInputs = [
-    pkgs.go_1_22
+    pkgs.go_1_21
   ];
 
   meta = with lib; {
