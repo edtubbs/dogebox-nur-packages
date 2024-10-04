@@ -8,7 +8,7 @@
 let
   dpanel = fetchGit {
     url = "https://github.com/dogeorg/dpanel.git";
-    rev = "914a8792211f8fcc0129df37386f05f2e63159ab";
+    rev = "f108aea1d975387dff7de797bce2c7970e14a660";
   };
 in
 
@@ -18,7 +18,7 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/dogeboxd.git";
-    rev = "c3b4f9f4cf54510bf6b0fac842bfc84bde11f468";
+    rev = "06359d3decb6f9e538e86ec10c67a0525502280a";
   };
 
   vendorHash = "sha256-Z0maOpolSBoYYN/oomPHNZurMNjyMhS0QUMg3MgmvcU=";

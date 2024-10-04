@@ -11,7 +11,7 @@ buildGoModule {
 
   src = fetchGit {
     url = "https://github.com/dogeorg/reflector.git";
-    rev = "bbb24e1b4bdc68a0cbc955ea028c73daebfe9e1f";
+    rev = "dffbb3196eb4ebeabf56ea30af7049f75b8746c6";
   };
 
   vendorHash = "sha256-Dfdzc2wZWis2/Lla6VLYkSUNKw4dTw8kEGCGdDN0org=";
