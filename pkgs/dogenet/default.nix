@@ -17,8 +17,8 @@ buildGoModule {
 
   src = pkgs.fetchgit {
     url = "https://github.com/dogeorg/dogenet.git";
-    rev = "v0.1.2";
-    hash = "sha256-NIwLHN6WaBs1uj11YOmmZo0h6NJ1nd6TrSDUDhSu76s=";
+    rev = "v0.1.3";
+    hash = "sha256-r+segSbdWREUT14rlNP7cDO5XK6EBmCl9YW8UIcAUhs=";
   };
 
   vendorHash = "sha256-5wV+yH0+ublvXhMpLkru8Y9WCMLy/FK1SG6qozH1CMg=";
