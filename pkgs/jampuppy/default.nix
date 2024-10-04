@@ -10,9 +10,10 @@ buildGoModule {
   pname = "jampuppy";
   version = "0.1";
 
-  src = fetchGit {
+  src = pkgs.fetchgit {
     url = "https://github.com/dogeorg/jampuppy.git";
-    rev = "a9a2160fbcd80a17f722fabf17a67b77b8f2c00b";
+    rev = "v0.1.3";
+    hash = "sha256-e32MCwQHKiGfstw1PGD1vnyA7JsnSFLi3RBjJ0RPqCI=";
   };
 
   vendorHash = "sha256-3PnXB8AfZtgmYEPJuh0fwvG38dtngoS/lxyx3H+rvFs=";
