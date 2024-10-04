@@ -7,11 +7,12 @@
 
 buildGoModule {
   pname = "dkm";
-  version = "0.1";
+  version = "0.1.1";
 
-  src = fetchGit {
+  src = pkgs.fetchgit {
     url = "https://github.com/dogeorg/dkm.git";
-    rev = "d915351ba924766c0985edf5d318d3ecb0914844";
+    rev = "v0.1.1";
+    hash = "sha256-mSgdf9Msj834smUjpDNoZHRVg8Q5vBee0jFzRhNFmto=";
   };
 
   vendorHash = "sha256-9smxGxt+XHXc6KZnGxCQ9SlFGPu7BmsLATV/O4fybFU=";
