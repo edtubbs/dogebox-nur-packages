@@ -2,26 +2,43 @@
   pkgs ? import <nixpkgs> {},
   lib ? pkgs.lib,
   buildGoModule ? pkgs.buildGoModule,
+  localDogeboxdPath ? null,
+  localDpanelPath ? null,
   ...
 }:
 
 let
-  dpanel = fetchGit {
+  upstream_dpanel = fetchGit {
     url = "https://github.com/dogeorg/dpanel.git";
     rev = "54207dc2495deadfdd170811397b7fe13d97f744";
   };
+
+  dogeboxd = fetchGit {
+    url = "https://github.com/dogeorg/dogeboxd.git";
+    rev = "39cd59a7bda8b39ce4bf9916bf1f7503b0945db1";
+  };
+
+  dogeboxdVendorHash = "sha256-sCeuZC555CtiZqROfPGPUYsHzejZL5e5ow9IhU60B3I=";
+
+  dogeboxDevPath = builtins.path { path = localDogeboxdPath; };
+  dpanelDevPath = builtins.path { path = localDpanelPath; };
+
+  dpanel = if localDpanelPath != null then dpanelDevPath else upstream_dpanel;
 in
 
 buildGoModule {
   pname = "dogeboxd";
   version = "0.1";
 
-  src = fetchGit {
-    url = "https://github.com/dogeorg/dogeboxd.git";
-    rev = "1001eb4ae4b2d6b29661551262c2647e32cda84f";
-  };
+  src = if localDogeboxdPath != null then
+    pkgs.runCommandNoCC "dogeboxd-dev-source" { } ''
+      mkdir -p $out
+      cp -rT ${dogeboxDevPath} $out
+    ''
+  else
+    dogeboxd;
 
-  vendorHash = "sha256-222OtaJIhQMMFrSxV2363e0WoiIDZKTzIYYWRjPyjGw=";
+  vendorHash = if localDogeboxdPath != null then null else dogeboxdVendorHash;
 
   buildPhase = ''
     make
