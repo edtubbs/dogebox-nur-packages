@@ -13,7 +13,7 @@ let
 in
 buildGoModule {
   pname = "dogemap-backend";
-  version = "0.2";
+  version = "0.3";
 
   src = pkgs.fetchgit {
     url = "https://github.com/dogeorg/dogemap-backend.git";
@@ -28,10 +28,10 @@ buildGoModule {
   ];
 
   postInstall = ''
-    mkdir -p $out/storage
+    mkdir -p $out/bin/storage
     cp ${geodb} ./dbip-city-ipv4-num.csv.gz
     gzip -d dbip-city-ipv4-num.csv.gz
-    mv dbip-city-ipv4-num.csv $out/storage/dbip-city-ipv4-num.csv
+    mv dbip-city-ipv4-num.csv $out/bin/storage/dbip-city-ipv4-num.csv
   '';
 
   meta = with lib; {
