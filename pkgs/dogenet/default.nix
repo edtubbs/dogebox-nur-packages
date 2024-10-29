@@ -7,12 +7,12 @@
 
 buildGoModule {
   pname = "dogenet";
-  version = "0.3";
+  version = "0.4";
 
   src = pkgs.fetchgit {
     url = "https://github.com/dogeorg/dogenet.git";
-    rev = "v0.1.6";
-    hash = "sha256-etukNGznCO0DSNJ39wccGLBjvuVKYoY6Og5rMapGgoY=";
+    rev = "v0.1.7";
+    hash = "sha256-9KoDouO0V6IKMx3oeBSpDRP977Y+frNEz+Eq0bumYwg=";
   };
 
   vendorHash = "sha256-4XDgSVH+QAlIAv5/h30oqeVzMTEoAfEAySkVmMH6kFs=";
