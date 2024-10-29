@@ -2,6 +2,8 @@
   pkgs ? import <nixpkgs> {},
   lib ? pkgs.lib,
   buildGoModule ? pkgs.buildGoModule,
+  dbxRelease,
+  nurPackagesHash,
   localDogeboxdPath ? null,
   localDpanelPath ? null,
   ...
@@ -41,7 +43,7 @@ buildGoModule {
   vendorHash = if localDogeboxdPath != null then null else dogeboxdVendorHash;
 
   buildPhase = ''
-    make
+    DBX_RELEASE=${dbxRelease} DBX_NUR_HASH=${nurPackagesHash} make
   '';
 
   installPhase = ''
