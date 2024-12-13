@@ -2,8 +2,8 @@
   pkgs ? import <nixpkgs> {},
   lib ? pkgs.lib,
   buildGoModule ? pkgs.buildGoModule,
-  dbxRelease,
-  nurPackagesHash,
+  dbxRelease ? "",
+  nurPackagesHash ? "",
   localDogeboxdPath ? null,
   localDpanelPath ? null,
   ...

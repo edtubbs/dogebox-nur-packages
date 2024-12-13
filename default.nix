@@ -8,8 +8,8 @@
 
 {
   pkgs ? import <nixpkgs> { },
-  dbxRelease,
-  nurPackagesHash,
+  dbxRelease ? "",
+  nurPackagesHash ? "",
   localDogeboxdPath ? null,
   localDpanelPath ? null
 }:
