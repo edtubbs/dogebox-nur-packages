@@ -27,6 +27,7 @@
   dogenet         = pkgs.callPackage ./pkgs/dogenet {};
   jampuppy        = pkgs.callPackage ./pkgs/jampuppy {};
   libdogecoin     = pkgs.callPackage ./pkgs/libdogecoin {};
+  libdogecoin-optee = pkgs.callPackage ./pkgs/libdogecoin-optee {};
   nrpe            = pkgs.callPackage ./pkgs/nrpe {};
   radicle         = pkgs.callPackage ./pkgs/radicle {};
   radicle-httpd   = pkgs.callPackage ./pkgs/radicle-httpd {};
