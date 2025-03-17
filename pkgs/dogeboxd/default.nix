@@ -16,8 +16,8 @@ let
   };
 
   dogeboxd = fetchGit {
-    url = "https://github.com/dogeorg/dogeboxd.git";
-    rev = "166eba0d848401311c8d8830f9e9750835126a26";
+    url = "https://github.com/edtubbs/dogeboxd.git";
+    rev = "590995cb81a731479d0c298c52526a100b9d7c7a";
     allRefs = true;
   };
 
