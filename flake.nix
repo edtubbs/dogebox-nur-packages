@@ -1,6 +1,6 @@
 {
   description = "Dogebox NUR repository";
-  inputs.nixpkgs.url = "github:NixOS/edtubbs/add-optee";
+  inputs.nixpkgs.url = "github:NixOS/edtubbs/nixos-24.11-optee";
   outputs = { self, nixpkgs }:
     let
       systems = [
