@@ -17,7 +17,7 @@ let
 
   dogeboxd = fetchGit {
     url = "https://github.com/edtubbs/dogeboxd.git";
-    rev = "070eb4cd2b24d7586e6860a6cce92c8b4db81fab";
+    rev = "3ef478f7c3f9ce45bedda0b80afa0c7bdaddf9ff";
     allRefs = true;
   };
 
