@@ -8,7 +8,7 @@
 
 stdenv.mkDerivation rec {
   pname = "libdogecoin";
-  version = "0.1.5-pre-dashb0rd";
+  version = "0.1.5-pre-dashb0rd-smpv";
 
   src = fetchurl {
     url = "https://github.com/edtubbs/libdogecoin/archive/refs/tags/v${version}.tar.gz";
