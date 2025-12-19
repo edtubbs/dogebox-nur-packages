@@ -8,11 +8,11 @@
 
 stdenv.mkDerivation rec {
   pname = "libdogecoin";
-  version = "0.1.5-pre-dashb0rd-smpv-stats";
+  version = "0.1.5-pre-snapshot-optee";
 
   src = fetchurl {
     url = "https://github.com/edtubbs/libdogecoin/archive/refs/tags/v${version}.tar.gz";
-    hash = "sha256-BD6dDl3ny/GaHwnOUDyUSxUr99GLPdPfm/GAmYD478k=";
+    hash = "sha256-RMMiwe4hir0BIj3jxZJj1bJeAz6kAUNC52ZHbiI4cxs=";
   };
 
   configurePhase = ''
