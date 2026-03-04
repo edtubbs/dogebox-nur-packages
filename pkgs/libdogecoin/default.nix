@@ -259,11 +259,11 @@ let
 in
 stdenv.mkDerivation rec {
   pname = "libdogecoin";
-  version = "0.1.5-pre";
+  version = "0.1.5-update-stats";
 
   src = fetchurl {
-    url = "https://github.com/dogecoinfoundation/libdogecoin/archive/refs/tags/v${version}.tar.gz";
-    hash = "sha256-oQMR0EzzRcsfZ3DoKnESXanEjm6dk2X+7zFhL+Ae6cs=";
+    url = "https://github.com/edtubbs/libdogecoin/archive/refs/tags/v${version}.tar.gz";
+    hash = "sha256-zA7rKQKeOER9KggI9x9ykPb//299Uz/OvEtvMAnombA=";
   };
 
   configurePhase = ''
