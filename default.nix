@@ -20,7 +20,10 @@
   dogemap         = pkgs.callPackage ./pkgs/dogemap {};
   dogenet         = pkgs.callPackage ./pkgs/dogenet {};
   jampuppy        = pkgs.callPackage ./pkgs/jampuppy {};
-  libdogecoin     = pkgs.callPackage ./pkgs/libdogecoin {};
+  libdogecoin     = pkgs.callPackage ./pkgs/libdogecoin {
+    openenclave = pkgs.callPackage ./pkgs/openenclave {};
+  };
+  openenclave     = pkgs.callPackage ./pkgs/openenclave {};
   nrpe            = pkgs.callPackage ./pkgs/nrpe {};
   radicle         = pkgs.callPackage ./pkgs/radicle {};
   radicle-httpd   = pkgs.callPackage ./pkgs/radicle-httpd {};

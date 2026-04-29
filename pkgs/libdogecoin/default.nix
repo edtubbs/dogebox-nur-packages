@@ -3,6 +3,11 @@
   lib ? pkgs.lib,
   stdenv ? pkgs.stdenv,
   fetchurl ? pkgs.fetchurl,
+  # OpenEnclave SDK is not in nixpkgs; we ship our own derivation under
+  # `pkgs/openenclave` and inject it from `default.nix`. It is only used by
+  # the `libdogecoin-openenclave-*` derivations below, which are gated to
+  # x86_64-linux (Intel SGX is x86 only).
+  openenclave ? pkgs.callPackage ../openenclave {},
   ...
 }:
 
@@ -246,7 +251,7 @@ let
         ];
       }))
       pkgs.libevent.dev
-      pkgs.openenclave
+      openenclave
     ];
 
     configurePhase = ''
@@ -347,7 +352,7 @@ let
       pkgs.openssl
     ];
     buildInputs = [
-      pkgs.openenclave
+      openenclave
       libdogecoin-openenclave-enclave-libs
       pkgs.libevent
       pkgs.libevent.dev
@@ -401,7 +406,7 @@ let
       pkgs.makeWrapper
     ];
     buildInputs = [
-      pkgs.openenclave
+      openenclave
       libdogecoin-openenclave-host-libs
       pkgs.libevent
       pkgs.libevent.dev
