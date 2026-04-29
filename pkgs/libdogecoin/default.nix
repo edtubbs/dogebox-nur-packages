@@ -7,6 +7,17 @@
 }:
 
 let
+  # Static libevent build used by the OpenEnclave host/enclave cmake builds,
+  # which link against `libevent.a` / `libevent_core.a` directly (see upstream
+  # `src/openenclave/{host,enclave}/CMakeLists.txt`). Stock nixpkgs libevent is
+  # shared-only, so we override it to produce static archives.
+  libevent-static = pkgs.libevent.overrideAttrs (old: {
+    configureFlags = (old.configureFlags or [ ]) ++ [
+      "--disable-shared"
+      "--enable-static"
+    ];
+  });
+
   libdogecoin-optee-ta-libs = stdenv.mkDerivation rec {
     pname = "libdogecoin-optee-ta-libs";
     version = "0.1.5-pre";
@@ -353,7 +364,7 @@ let
       cp -r ${libdogecoin-openenclave-enclave-libs}/lib/* depends/x86_64-pc-linux-gnu/lib/
       mkdir -p src/libevent/build/include src/libevent/build/lib
       cp -r ${pkgs.libevent.dev}/include/* src/libevent/build/include/
-      cp ${pkgs.libevent}/lib/libevent* src/libevent/build/lib/ 2>/dev/null || true
+      cp ${libevent-static}/lib/libevent*.a src/libevent/build/lib/
       mkdir -p src/openenclave/build
       cd src/openenclave/build
       cmake .. -DCMAKE_BUILD_TYPE=Release
@@ -410,8 +421,7 @@ let
       cp -r ${libdogecoin-openenclave-host-libs}/lib/* depends/x86_64-pc-linux-gnu/host/lib/
       mkdir -p src/libevent/build/include src/libevent/build/lib
       cp -r ${pkgs.libevent.dev}/include/* src/libevent/build/include/
-      cp ${pkgs.libevent}/lib/libevent.a src/libevent/build/lib/ 2>/dev/null || \
-        cp ${pkgs.libevent.out}/lib/libevent* src/libevent/build/lib/
+      cp ${libevent-static}/lib/libevent*.a src/libevent/build/lib/
       mkdir -p src/openenclave/build
       cd src/openenclave/build
       cmake .. -DCMAKE_BUILD_TYPE=Release
