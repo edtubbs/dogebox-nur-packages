@@ -34,6 +34,11 @@ buildGoModule {
     hash = "sha256-OuAWgZNH9EpZMniLjP6gsh/iPq/3kyDlc1oA4Swmc40=";
   };
 
+  # The repository is polyglot: a Rust workspace in libd2/ and Go modules
+  # in d2-node/ (the node daemon) and d2-core/backend/. This package builds
+  # the d2-node Go module.
+  modRoot = "d2-node";
+
   vendorHash = lib.fakeHash;
 
   nativeBuildInputs = [
@@ -44,7 +49,7 @@ buildGoModule {
   preferLocalBuild = true;
 
   meta = with lib; {
-    description = "D2";
+    description = "D2 node daemon";
     homepage = "https://github.com/dogecoinfoundation/d2";
     license = licenses.mit;
     maintainers = with maintainers; [ dogecoinfoundation ];
