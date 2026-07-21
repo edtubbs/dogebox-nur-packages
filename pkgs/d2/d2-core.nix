@@ -7,6 +7,7 @@
 
 let
   source = import ./source.nix { inherit pkgs; };
+  libd2 = pkgs.callPackage ./libd2.nix {};
 in
 buildGoModule {
   pname = "d2-core";
@@ -19,6 +20,23 @@ buildGoModule {
   # To generate: leave as lib.fakeHash, build once, and replace with the
   # hash Nix reports.
   vendorHash = "sha256-B9aPABCU31WiEWxdsb6MT8cLxnkpxT1EnDZcjx9PW48=";
+
+  nativeBuildInputs = [
+    pkgs.autoPatchelfHook
+  ];
+
+  buildInputs = [
+    libd2
+  ];
+
+  # The backend's cgo links against the libd2 Rust library via
+  # -L../../../../libd2/target/release -ld2 (relative to
+  # d2-core/backend/internal/ffi_libd2). Stage the prebuilt libd2
+  # output where the link flags expect it.
+  preBuild = ''
+    mkdir -p ../../libd2/target/release
+    cp ${libd2}/lib/* ../../libd2/target/release/
+  '';
 
   buildPhase = ''
     runHook preBuild
