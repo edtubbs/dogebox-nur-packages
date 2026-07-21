@@ -7,6 +7,7 @@
 
 let
   source = import ./source.nix { inherit pkgs; };
+  libd2 = pkgs.callPackage ./libd2.nix {};
 in
 buildGoModule {
   pname = "d2";
@@ -18,6 +19,22 @@ buildGoModule {
   modRoot = "d2-node";
 
   vendorHash = "sha256-FJvuamr+XwvwDd1Is8fmYBXFLWZJQo5RfUlEVtwRVYw=";
+
+  nativeBuildInputs = [
+    pkgs.autoPatchelfHook
+  ];
+
+  buildInputs = [
+    libd2
+  ];
+
+  # d2-node's cgo links against the libd2 Rust library via
+  # -L../libd2/target/release -ld2 (relative to d2-node/internal/ffi).
+  # Stage the prebuilt libd2 output where the link flags expect it.
+  preBuild = ''
+    mkdir -p ../libd2/target/release
+    cp ${libd2}/lib/* ../libd2/target/release/
+  '';
 
   # Private source: cannot be fetched or cached by public CI.
   preferLocalBuild = true;

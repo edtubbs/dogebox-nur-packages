@@ -15,9 +15,19 @@ rustPlatform.buildRustPackage {
   # The Rust workspace (with its Cargo.lock) lives in libd2/.
   sourceRoot = "${source.src.name}/libd2";
 
-  # To generate: leave as lib.fakeHash, build once, and replace with the
-  # hash Nix reports.
-  cargoHash = lib.fakeHash;
+  # The workspace has a private git dependency (houseofdoge/km2) fetched
+  # over SSH, which cannot be vendored inside the build sandbox. Instead
+  # of cargoHash, use cargoLock with allowBuiltinFetchGit: git deps are
+  # then fetched at evaluation time by builtins.fetchGit, which runs as
+  # the invoking user and can use their SSH agent/keys.
+  #
+  # ./Cargo.lock must be kept in sync with libd2/Cargo.lock from the
+  # pinned d2 revision:
+  #   cp <d2-checkout>/libd2/Cargo.lock pkgs/d2/Cargo.lock
+  cargoLock = {
+    lockFile = ./Cargo.lock;
+    allowBuiltinFetchGit = true;
+  };
 
   # The workspace pins a toolchain in rust-toolchain.toml; the nixpkgs
   # rustPlatform toolchain is used instead. If the build requires the
