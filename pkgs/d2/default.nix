@@ -24,14 +24,14 @@ buildGoModule {
   #   - Single-user Nix: build with `--option sandbox relaxed`, which
   #     lets the fetch use your SSH agent.
   #
-  # To generate the source hash on a machine with access:
-  #   nix-prefetch-git git@github.com:dogecoinfoundation/d2.git a8ca5114a03bb0e7343d27e19955b4ff889972b9
-  # Then replace `hash` below. Leave `vendorHash = lib.fakeHash`, build once,
+  # To regenerate the source hash on a machine with access:
+  #   nix-prefetch-git git@github.com:dogecoinfoundation/d2.git <rev>
+  # Then replace `hash` below. Set `vendorHash = lib.fakeHash`, build once,
   # and replace it with the hash Nix reports.
   src = pkgs.fetchgit {
     url = "git@github.com:dogecoinfoundation/d2.git";
     inherit rev;
-    hash = lib.fakeHash;
+    hash = "sha256-OuAWgZNH9EpZMniLjP6gsh/iPq/3kyDlc1oA4Swmc40=";
   };
 
   vendorHash = lib.fakeHash;
