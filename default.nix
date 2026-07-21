@@ -17,6 +17,8 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   d2              = pkgs.callPackage ./pkgs/d2 {};
+  d2-core         = pkgs.callPackage ./pkgs/d2/d2-core.nix {};
+  libd2           = pkgs.callPackage ./pkgs/d2/libd2.nix {};
   dogecoin-core   = pkgs.callPackage ./pkgs/dogecoin-core {};
   dogemap         = pkgs.callPackage ./pkgs/dogemap {};
   dogenet         = pkgs.callPackage ./pkgs/dogenet {};
