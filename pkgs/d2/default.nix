@@ -18,7 +18,7 @@ buildGoModule {
   # d2-core/backend/ (see d2-core.nix).
   modRoot = "d2-node";
 
-  vendorHash = "sha256-FJvuamr+XwvwDd1Is8fmYBXFLWZJQo5RfUlEVtwRVYw=";
+  vendorHash = lib.fakeHash;
 
   nativeBuildInputs = [
     pkgs.autoPatchelfHook
