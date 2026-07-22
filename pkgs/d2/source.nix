@@ -24,6 +24,6 @@ rec {
     url = "git@github.com:dogecoinfoundation/d2.git";
     inherit rev;
     # To regenerate: nix-prefetch-git git@github.com:dogecoinfoundation/d2.git <rev>
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    hash = "sha256-ur5Oo5PXDun/zNhdn8iuG+xq1TOnjzj3HbeRSQD3DOc=";
   };
 }
