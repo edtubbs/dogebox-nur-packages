@@ -23,6 +23,7 @@
   dogemap         = pkgs.callPackage ./pkgs/dogemap {};
   dogenet         = pkgs.callPackage ./pkgs/dogenet {};
   jampuppy        = pkgs.callPackage ./pkgs/jampuppy {};
+  k2              = pkgs.callPackage ./pkgs/k2 {};
   libdogecoin     = pkgs.callPackage ./pkgs/libdogecoin {};
   nrpe            = pkgs.callPackage ./pkgs/nrpe {};
   radicle         = pkgs.callPackage ./pkgs/radicle {};
