@@ -12,9 +12,11 @@ rustPlatform.buildRustPackage {
   pname = "k2";
   inherit (source) version src;
 
-  # To generate: leave as lib.fakeHash, build once, and replace with the
-  # hash Nix reports.
-  cargoHash = lib.fakeHash;
+  # Use the lockfile from the pinned source revision so crates are fetched
+  # from lockfile metadata instead of the crates.io API vendor staging flow.
+  cargoLock = {
+    lockFile = "${source.src}/Cargo.lock";
+  };
 
   # Private source: cannot be fetched or cached by public CI.
   preferLocalBuild = true;
