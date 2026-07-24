@@ -20,6 +20,7 @@
   d2-core         = pkgs.callPackage ./pkgs/d2/d2-core.nix {};
   libd2           = pkgs.callPackage ./pkgs/d2/libd2.nix {};
   dogecoin-core   = pkgs.callPackage ./pkgs/dogecoin-core {};
+  dogecoin-core-backport = pkgs.callPackage ./pkgs/dogecoin-core-backport {};
   dogemap         = pkgs.callPackage ./pkgs/dogemap {};
   dogenet         = pkgs.callPackage ./pkgs/dogenet {};
   jampuppy        = pkgs.callPackage ./pkgs/jampuppy {};
