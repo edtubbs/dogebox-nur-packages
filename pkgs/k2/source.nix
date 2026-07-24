@@ -2,8 +2,8 @@
 
 rec {
   # Pinned commit from the private houseofdoge/km2 repository.
-  rev = "83b6d1ce1d8746186bce037770bce1069a5fb9dd";
-  version = "0-unstable-2026-07-23";
+  rev = "fa71ea1319246ac09edea115e056924ddeda6b94";
+  version = "0-unstable-2026-06-25";
 
   # fetchgit is a fixed-output derivation, so it is allowed network access
   # inside the sandbox. The machine performing the fetch needs read access
@@ -16,6 +16,6 @@ rec {
   src = pkgs.fetchgit {
     url = "git@github.com:houseofdoge/km2.git";
     inherit rev;
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    hash = "sha256-uDs3qhfn4WKbaUdh5QzWepxulG4p3XHr1DjtFdOID0k=";
   };
 }
