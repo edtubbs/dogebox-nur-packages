@@ -17,13 +17,13 @@
 
 rec {
   # Pinned commit on the copilot/start-testnet-for-d2 branch.
-  rev = "8029748cdf38dde8c5e676f068bbdcd0f0d45ca7";
-  version = "0-unstable-2026-07-29";
+  rev = "54204785a2bd8042674b3264cb15cf47b3c620b8";
+  version = "0-unstable-2026-07-30";
 
   src = pkgs.fetchgit {
     url = "git@github.com:dogecoinfoundation/d2.git";
     inherit rev;
     # To regenerate: nix-prefetch-git git@github.com:dogecoinfoundation/d2.git <rev>
-    hash = "sha256-E2aqBJ7h8eX1yqJTpkCKyK+QRTvNqJilZycp0jxxp4A=";
+    hash = "sha256-ZC4UUlg8GYPxSW4M9gWY+DS8dKaJrdKVZCkirsrkazg=";
   };
 }
