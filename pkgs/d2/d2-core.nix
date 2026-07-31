@@ -19,7 +19,7 @@ buildGoModule {
 
   # To generate: leave as lib.fakeHash, build once, and replace with the
   # hash Nix reports.
-  vendorHash = "sha256-B9aPABCU31WiEWxdsb6MT8cLxnkpxT1EnDZcjx9PW48=";
+  vendorHash = "sha256-qaO/uwfd8SNVAH+dzWYng+3SW9zwHvLC9MRD39eDm6o=";
 
   nativeBuildInputs = [
     pkgs.autoPatchelfHook
