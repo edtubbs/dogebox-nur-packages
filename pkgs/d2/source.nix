@@ -17,13 +17,31 @@
 
 rec {
   # Pinned commit on the copilot/start-testnet-for-d2 branch.
-  rev = "5870699caf60b218698d134d30ca44acf0c0b745";
-  version = "0-unstable-2026-08-04";
+  rev = "f7b393d1d8ddde241d82d16afaf6fa034e1c3573";
+  version = "0-unstable-2026-08-05";
 
   src = pkgs.fetchgit {
     url = "git@github.com:dogecoinfoundation/d2.git";
     inherit rev;
     # To regenerate: nix-prefetch-git git@github.com:dogecoinfoundation/d2.git <rev>
-    hash = "sha256-drKgjkIijY8VQDsmtfb46lrKb+eTxWmS+awKATgOH9M=";
+    hash = "sha256-r288poapDLZtDqSGjZbsoKP2+UVcZjT3WbJrzQWr/ww=";
+  };
+
+  # The three Cargo workspaces in the repository (Makefile targets).
+  # Each has its own Cargo.lock, vendored beside this file.
+  workspaces = {
+    libd2 = "libd2";
+    d2-node = "d2-node";
+    d2-core-backend = "d2-core/backend";
+  };
+
+  # Shared cargoLock options. The libd2 workspace has a private git
+  # dependency (houseofdoge/km2) fetched over SSH, which cannot be
+  # vendored inside the build sandbox. allowBuiltinFetchGit makes Nix
+  # fetch git deps at evaluation time via builtins.fetchGit, which runs
+  # as the invoking user and can use their SSH agent/keys.
+  mkCargoLock = lockFile: {
+    inherit lockFile;
+    allowBuiltinFetchGit = true;
   };
 }

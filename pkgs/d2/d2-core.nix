@@ -1,63 +1,59 @@
 {
   pkgs ? import <nixpkgs> {},
   lib ? pkgs.lib,
-  buildGoModule ? pkgs.buildGoModule,
+  rustPlatform ? pkgs.rustPlatform,
   ...
 }:
 
 let
   source = import ./source.nix { inherit pkgs; };
-  libd2 = pkgs.callPackage ./libd2.nix {};
 in
-buildGoModule {
+rustPlatform.buildRustPackage {
   pname = "d2-core";
   inherit (source) version src;
 
-  # The d2-core backend Go module builds a c-shared library
-  # (see the repository Makefile).
-  modRoot = "d2-core/backend";
+  # d2core-backend is now a Rust crate producing a cdylib/staticlib
+  # behind the 26-fn d2core.h C ABI consumed by Flutter dart:ffi
+  # (d2-core/backend/Cargo.toml). It depends on ../../libd2/crates/d2
+  # and ../../d2-node/crates/d2-rpc-types by path, so the whole tree
+  # must stay unpacked.
+  cargoRoot = "d2-core/backend";
+  buildAndTestSubdir = "d2-core/backend";
 
-  # To generate: leave as lib.fakeHash, build once, and replace with the
-  # hash Nix reports.
-  vendorHash = "sha256-qaO/uwfd8SNVAH+dzWYng+3SW9zwHvLC9MRD39eDm6o=";
+  # ./Cargo.lock.d2-core must be kept in sync with
+  # d2-core/backend/Cargo.lock from the pinned d2 revision:
+  #   cp <d2-checkout>/d2-core/backend/Cargo.lock pkgs/d2/Cargo.lock.d2-core
+  cargoLock = source.mkCargoLock ./Cargo.lock.d2-core;
 
   nativeBuildInputs = [
-    pkgs.autoPatchelfHook
+    pkgs.pkg-config
+    pkgs.perl
   ];
 
-  buildInputs = [
-    libd2
+  buildInputs = lib.optionals pkgs.stdenv.isDarwin [
+    pkgs.darwin.apple_sdk.frameworks.Security
+    pkgs.darwin.apple_sdk.frameworks.SystemConfiguration
   ];
 
-  # The backend's cgo links against the libd2 Rust library via
-  # -L../../../../libd2/target/release -ld2 (relative to
-  # d2-core/backend/internal/ffi_libd2). Stage the prebuilt libd2
-  # output where the link flags expect it.
-  preBuild = ''
-    mkdir -p ../../libd2/target/release
-    cp ${libd2}/lib/* ../../libd2/target/release/
-  '';
-
-  buildPhase = ''
-    runHook preBuild
-    go build -buildmode=c-shared -o libd2core.so ./cmd/d2core-backend
-    runHook postBuild
-  '';
-
-  installPhase = ''
-    runHook preInstall
-    install -Dm755 libd2core.so $out/lib/libd2core.so
-    if [ -f libd2core.h ]; then
-      install -Dm644 libd2core.h $out/include/libd2core.h
+  # buildRustPackage's installPhase only installs binaries; this crate
+  # is a library, so install the cdylib/staticlib and the checked-in
+  # cbindgen header explicitly.
+  postInstall = ''
+    mkdir -p $out/lib $out/include
+    find target/${pkgs.stdenv.hostPlatform.rust.rustcTarget}/release \
+      -maxdepth 1 -name 'libd2core.*' -exec install -Dm755 {} $out/lib/ \;
+    if [ -f d2-core/backend/abi/d2core.h ]; then
+      install -Dm644 d2-core/backend/abi/d2core.h $out/include/d2core.h
     fi
-    runHook postInstall
   '';
+
+  doCheck = false;
 
   # Private source: cannot be fetched or cached by public CI.
   preferLocalBuild = true;
 
   meta = with lib; {
-    description = "D2 core backend c-shared library";
+    description = "D2 core backend cdylib (d2core.h C ABI for Flutter dart:ffi)";
     homepage = "https://github.com/dogecoinfoundation/d2";
     license = licenses.mit;
     maintainers = with maintainers; [ dogecoinfoundation ];
