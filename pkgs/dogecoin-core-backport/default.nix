@@ -43,7 +43,7 @@ stdenv.mkDerivation rec {
   pname = "dogecoin-core-backport";
   # 1.14.99 development tree (post-1.14.9) with snapshot RPC backports.
   upstreamVersion = "1.14.99";
-  derivationVersion = "v1";
+  derivationVersion = "v2";
 
   version = "${upstreamVersion}-${derivationVersion}";
 
@@ -51,8 +51,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "edtubbs";
     repo = "dogecoin";
-    rev = "f724aa8abe00f9a8c1fa8faa162b2b5592c2536e";
-    hash = "sha256-xOH7PGHDOyDdDCeH8QnlDb8WC7whLCizd1xTLfUtUkM=";
+    rev = "680712336dd592d2e1dcc4f209e6294912e24816";
+    hash = "sha256-bc2JaJHcd0oRkupfJk6IZ2n8HnLoQq/zSdVGAmND3ic=";
   };
 
   configureFlags = [
