@@ -1157,6 +1157,7 @@ name = "d2-tx"
 version = "1.0.0"
 dependencies = [
  "d2-codec",
+ "d2-crypto",
  "d2-primitives",
  "d2-receipts",
  "hex",

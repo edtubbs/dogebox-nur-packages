@@ -543,6 +543,7 @@ dependencies = [
  "d2-tx",
  "d2-validator",
  "d2-zk",
+ "hex",
  "serde_json",
 ]
 
@@ -719,6 +720,7 @@ name = "d2-tx"
 version = "1.0.0"
 dependencies = [
  "d2-codec",
+ "d2-crypto",
  "d2-primitives",
  "d2-receipts",
  "hex",
@@ -745,7 +747,9 @@ dependencies = [
  "d2-state",
  "d2-tx",
  "d2-zk",
+ "hex",
  "secp256k1 0.31.1",
+ "serde_json",
  "sha2",
 ]
 
