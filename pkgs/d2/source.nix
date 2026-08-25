@@ -17,14 +17,14 @@
 
 rec {
   # Pinned commit on the copilot/start-testnet-for-d2 branch.
-  rev = "0a676af54ee614b0635eeff3920d15b79c3fca6e";
-  version = "0-unstable-2026-08-25";
+  rev = "a5174e4a3abcc11320d127b6a18e14c864a38bb9";
+  version = "2-unstable-2026-08-25";
 
   src = pkgs.fetchgit {
     url = "git@github.com:dogecoinfoundation/d2.git";
     inherit rev;
     # To regenerate: nix-prefetch-git git@github.com:dogecoinfoundation/d2.git <rev>
-    hash = "sha256-mbzyev855V5Xd47Wo/+Z+x9LX6JekbOsHA1E+IPjrg0=";
+    hash = "sha256-xtOSOJlaV+xHx30EnyR+D7Kbt0BuLZlsvbKAfgJg/jg=";
   };
 
   # The three Cargo workspaces in the repository (Makefile targets).
